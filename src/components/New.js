@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { formataValor } from '../utlis/formataValor';
 
 export default function New(props) {
   return (
@@ -25,8 +26,11 @@ export default function New(props) {
 
       <View style={styles.footer}>
         <View style={{width: '80%'}}>
-          <Text style={styles.price}>R$ 1.204,90</Text>
+          <Text style={styles.price}>
+            {formataValor(props.value)}
+          </Text>
         </View>
+
         <View style={{width: '20%', alignItems: 'flex-end'}}>
           <Ionicons name="ios-add-circle" size={24} color="black" />
         </View>

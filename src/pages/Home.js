@@ -1,7 +1,10 @@
 import { StyleSheet, Text, ScrollView, View, TextInput } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
+
 import New from '../components/New';
+import imoveis from '../mocks/imoveis';
+import House from '../components/House';
 
 export default function Home() {
   const navigation = useNavigation();
@@ -26,27 +29,37 @@ export default function Home() {
         <Text style={styles.title}>Novidades</Text>
       </View>
 
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        <New
-          cover={require('../assets/house1.jpg')}
-          name="Casa de praia"
-          description="Casa nova a uma quadra da praia, lugar seguro e monitorado 24 hs"
-          onPress={() => navigation.navigate('details')}
-        />
-        <New
-          cover={require('../assets/house2.jpg')}
-          name="Casa de praia"
-          description="Casa nova a uma quadra da praia, lugar seguro e monitorado 24 hs"
-          onPress={() => navigation.navigate('details')}
-        />
-        <New
-          cover={require('../assets/house3.jpg')}
-          name="Casa de praia"
-          description="Casa nova a uma quadra da praia, lugar seguro e monitorado 24 hs"
-          onPress={() => navigation.navigate('details')}
-        />
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        style={{ paddingHorizontal: 15 }}
+      >
+        {
+          imoveis.map((imovel) => {
+            return (
+            <New
+              key={imovel.id}
+              cover={imovel.cover}
+              name={imovel.name}
+              description={imovel.description}
+              value={imovel.value}
+              onPress={() => navigation.navigate('details')}
+            />
+          )})
+        }
       </ScrollView>
 
+      <View style={styles.proximo}>
+        <Text style={styles.title}>Próximo de você</Text>
+      </View>
+
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        style={{ paddingHorizontal: 15 }}
+      >
+        <House />
+      </ScrollView>
     </ScrollView>
   )
 }
@@ -86,5 +99,10 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat-Bold',
     fontSize: 18,
     color: '#4f4a4a'
+  },
+  proximo: {
+    flexDirection: 'row',
+    marginVertical: 10,
+    alignItems: 'center'
   }
 });
