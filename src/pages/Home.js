@@ -5,6 +5,7 @@ import { Feather } from '@expo/vector-icons';
 import New from '../components/New';
 import imoveis from '../mocks/imoveis';
 import House from '../components/House';
+import { Recommended } from '../components/Recommended';
 
 export default function Home() {
   const navigation = useNavigation();
@@ -58,7 +59,25 @@ export default function Home() {
         showsHorizontalScrollIndicator={false}
         style={{ paddingHorizontal: 15 }}
       >
-        <House />
+        <House
+          cover={require('../assets/house4.jpg')}
+        />
+        <House
+          cover={require('../assets/house5.jpg')}
+        />
+        <House
+          cover={require('../assets/house6.jpg')}
+        />
+      </ScrollView>
+
+      <Text style={[styles.title, { marginTop: 20 }]}>Dica do dia</Text>
+
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        style={{ paddingHorizontal: 15 }}
+      >
+        <Recommended />
       </ScrollView>
     </ScrollView>
   )
@@ -71,7 +90,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
-    marginVertical: 20,
+    marginTop: 20,
   },
   inputArea: {
     flexDirection: 'row',
@@ -92,7 +111,8 @@ const styles = StyleSheet.create({
   contentNew: {
     flexDirection: 'row',
     width: '100%',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginTop: 10,
   },
   title: {
     paddingHorizontal: 15,
