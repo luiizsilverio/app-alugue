@@ -77,7 +77,21 @@ export default function Home() {
         showsHorizontalScrollIndicator={false}
         style={{ paddingHorizontal: 15 }}
       >
-        <Recommended />
+        <Recommended
+          cover={require('../assets/house1.jpg')}
+          house="Casa Floripa"
+          offer="20%"
+        />
+        <Recommended
+          cover={require('../assets/house4.jpg')}
+          house="Casa Ubatuba"
+          offer="15%"
+        />
+        <Recommended
+          cover={require('../assets/house6.jpg')}
+          house="Casa Floripa"
+          offer="10%"
+        />
       </ScrollView>
     </ScrollView>
   )

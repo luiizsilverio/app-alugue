@@ -1,6 +1,8 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { TouchableOpacity } from "react-native";
 import { Feather } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
+
 import Home from "../pages/Home";
 import Details from "../pages/Details";
 
@@ -13,9 +15,9 @@ export default function StacksRoutes() {
           name="home"
           component={Home}
           options={{
-            title: 'ALUGUE',
+            title: ' ALUGUE',
             headerTitleStyle: {
-              fontFamily: 'Montserrat-Bold'
+              fontFamily: 'Montserrat-Bold',
             },
             headerRight: () => (
               <TouchableOpacity>
@@ -25,6 +27,9 @@ export default function StacksRoutes() {
                   color="black"
                 />
               </TouchableOpacity>
+            ),
+            headerLeft: () => (
+              <FontAwesome5 name="laptop-house" size={24} color="black" />
             )
           }}
       />
@@ -32,9 +37,9 @@ export default function StacksRoutes() {
           name="details"
           component={Details}
           options={{
-            title: 'ALUGUE',
+            title: 'Detalhes',
             headerTitleStyle: {
-              fontFamily: 'Montserrat-Bold'
+              fontFamily: 'Montserrat-Bold',
             },
             headerRight: () => (
               <TouchableOpacity>
